@@ -1,13 +1,13 @@
 package com.example.nagasai.rootfinder;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnLongClickListener {
+public class MainActivity extends Activity {
 
     EditText et1, et2;
     double num = 0, root = 0, e = 0;
@@ -26,13 +26,28 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         tvHint = (TextView) findViewById(R.id.tvHint);
 
         btnCalculate = (Button) findViewById(R.id.btnCalculate);
-        btnCalculate.setOnLongClickListener(this);
+
+        btnCalculate.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                et1.setText(null);
+                et2.setText(null);
+                tvOutput.setText(null);
+                tvHint.setText(null);
+                return true;
+            }
+        });
     }
 
     public void calculate(View view) {
-        num = Double.parseDouble(et1.getText().toString());
-        root = Double.parseDouble(et2.getText().toString());
-        rootFinder(1, num, num, root, 0);
+        if (!(et1.getText().toString().equals("")) && !(et2.getText().toString().equals(""))) {
+            num = Double.parseDouble(et1.getText().toString());
+            root = Double.parseDouble(et2.getText().toString());
+            rootFinder(1, num, num, root, 0);
+        } else {
+            tvHint.setText("hold button to reset all values");
+            tvOutput.setText("Please enter numbers");
+        }
     }
 
 
@@ -57,16 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     }
 
     private void output(double d) {
-        tvHint.setText("hold Button to clear all values");
+        tvHint.setText("hold button to reset all values");
         tvOutput.setText(String.valueOf(d));
-    }
-
-    @Override
-    public boolean onLongClick(View v) {
-        et1.setText(null);
-        et2.setText(null);
-        tvOutput.setText(null);
-        tvHint.setText(null);
-        return true;
     }
 }
