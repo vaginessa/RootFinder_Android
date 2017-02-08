@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     double num = 0, root = 0, e = 0;
     TextView tvOutput, tvHint;
     Button btnCalculate;
-    String str = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,11 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     }
 
     private void output(double d) {
-        str = "hold Button to clear all values";
-        tvHint.setText(str);
-        str = String.valueOf(d);
-        tvOutput.setText(str);
-
+        tvHint.setText("hold Button to clear all values");
+        tvOutput.setText(String.valueOf(d));
     }
 
     @Override

@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="2"
         android:gravity="center"
-        android:hint="to find nth root of X, enter X in top field and n in 2nd field"
+        android:hint="to find nth root for X, enter X in 1st field and n in 2nd field"
         android:padding="5dp" />
 
     <View
