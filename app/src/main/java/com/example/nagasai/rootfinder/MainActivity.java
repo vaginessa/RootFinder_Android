@@ -30,10 +30,10 @@ public class MainActivity extends Activity {
         btnCalculate.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                et1.setText(null);
-                et2.setText(null);
-                tvOutput.setText(null);
-                tvHint.setText(null);
+                et1.setText("");
+                et2.setText("");
+                tvOutput.setText("");
+                tvHint.setText("");
                 return true;
             }
         });
@@ -45,14 +45,13 @@ public class MainActivity extends Activity {
             root = Double.parseDouble(et2.getText().toString());
             rootFinder(1, num, num, root, 0);
         } else {
-            tvHint.setText("hold button to reset all values");
             tvOutput.setText("Please enter numbers");
+            tvHint.setText("hold button to reset all values");
         }
     }
 
-
     public void rootFinder(double low, double high, double num, double root, int counter) {
-        if (counter < 7500) {
+        if (counter < 6000) {
             counter++;
             double d = (low + high) / 2;
             e = d;
@@ -60,19 +59,19 @@ public class MainActivity extends Activity {
                 d *= e;
             }
             if (d == num) {
-                output(e);
+                setOutput(e);
             } else if (d < num) {
                 rootFinder(e, high, num, root, counter);
             } else if (d > num) {
                 rootFinder(low, e, num, root, counter);
             }
         } else {
-            output(e);
+            setOutput(e);
         }
     }
 
-    private void output(double d) {
+    private void setOutput(double e) {
         tvHint.setText("hold button to reset all values");
-        tvOutput.setText(String.valueOf(d));
+        tvOutput.setText(String.valueOf(e));
     }
 }
