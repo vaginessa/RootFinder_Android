@@ -72,6 +72,9 @@ public class MainActivity extends Activity {
 
     private void setOutput(double e) {
         tvHint.setText("hold button to reset all values");
-        tvOutput.setText(String.valueOf(e));
+        if ((int) e == e) {
+            tvOutput.setText(String.valueOf((int) e));
+        } else
+            tvOutput.setText(String.valueOf(e));
     }
 }
