@@ -10,12 +10,9 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
     EditText et1, et2;
-    double e = 0, d = 0;
     TextView tvOutput, tvHint;
     Button btnCalculate;
-    static int counter = 0;
-    static double num, root;
-    boolean addI;
+    static double num, root, e;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,51 +40,28 @@ public class MainActivity extends Activity {
     }
 
     public void calculate(View view) {
-        counter = 0;
+        e = 0;
         if (!(et1.getText().toString().equals("")) && !(et2.getText().toString().equals(""))) {
             num = Double.parseDouble(et1.getText().toString());
             root = Double.parseDouble(et2.getText().toString());
             if (num == 0) {
-                setOutput(0.0);
-            } else if (root == 0) {
                 tvOutput.setText("Undefined");
-            } else if (num < 0) {
-                addI = true;
-                rootFinder(1, -num);
+            }
+            if (root == 0) {
+                tvOutput.setText("0");
+            }
+            if (num != 0 && root != 0) {
+                e = Math.pow(num, 1 / root);
+                if ((int) e == e) {
+                    tvOutput.setText(String.valueOf((int) e));
+                } else
+                    tvOutput.setText(String.valueOf(e));
             } else {
-                rootFinder(1, num);
+                tvOutput.setText("Please enter some values higher then 0");
             }
         } else {
             tvOutput.setText("Please enter numbers");
         }
         tvHint.setText("hold button to reset all values");
-    }
-
-    public void rootFinder(double low, double high) {
-        if (counter++ < 3000) {
-            e = d = (low + high) / 2;
-            for (int i = 1; i < root; ++i) {
-                d *= e;
-            }
-            if (d > num) {
-                rootFinder(low, e);
-            } else if (d < num) {
-                rootFinder(e, high);
-            } else {
-                setOutput(e);
-            }
-        } else {
-            setOutput(e);
-        }
-    }
-
-    private void setOutput(double e) {
-        if ((int) e == e) {
-            tvOutput.setText(String.valueOf((int) e));
-        } else
-            tvOutput.setText(String.valueOf(e));
-        if (addI) {
-            tvOutput.setText(tvOutput.getText().toString() + "i");
-        }
     }
 }
