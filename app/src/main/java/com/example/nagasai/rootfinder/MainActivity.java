@@ -37,31 +37,33 @@ public class MainActivity extends Activity {
                 return true;
             }
         });
-    }
-
-    public void calculate(View view) {
-        e = 0;
-        if (!(et1.getText().toString().equals("")) && !(et2.getText().toString().equals(""))) {
-            num = Double.parseDouble(et1.getText().toString());
-            root = Double.parseDouble(et2.getText().toString());
-            if (num == 0) {
-                tvOutput.setText("Undefined");
+        btnCalculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                e = 0;
+                if (!(et1.getText().toString().equals("")) && !(et2.getText().toString().equals(""))) {
+                    num = Double.parseDouble(et1.getText().toString());
+                    root = Double.parseDouble(et2.getText().toString());
+                    if (num == 0) {
+                        tvOutput.setText("Undefined");
+                    }
+                    if (root == 0) {
+                        tvOutput.setText("0");
+                    }
+                    if (num != 0 && root != 0) {
+                        e = Math.pow(num, 1 / root);
+                        if ((int) e == e) {
+                            tvOutput.setText(String.valueOf((int) e));
+                        } else
+                            tvOutput.setText(String.valueOf(e));
+                    } else {
+                        tvOutput.setText("Please enter some values higher then 0");
+                    }
+                } else {
+                    tvOutput.setText("Please enter numbers");
+                }
+                tvHint.setText("hold button to reset all values");
             }
-            if (root == 0) {
-                tvOutput.setText("0");
-            }
-            if (num != 0 && root != 0) {
-                e = Math.pow(num, 1 / root);
-                if ((int) e == e) {
-                    tvOutput.setText(String.valueOf((int) e));
-                } else
-                    tvOutput.setText(String.valueOf(e));
-            } else {
-                tvOutput.setText("Please enter some values higher then 0");
-            }
-        } else {
-            tvOutput.setText("Please enter numbers");
-        }
-        tvHint.setText("hold button to reset all values");
+        });
     }
 }
