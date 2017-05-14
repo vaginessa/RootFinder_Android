@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:layout_weight="1">
+        android:layout_weight="0.5">
 
         <EditText
             android:id="@+id/et1"
@@ -48,24 +48,25 @@
         android:gravity="center"
         android:hint="@string/app_by_gnsmk"
         android:textColor="@color/colorAccent"
-        android:textSize="30sp" />
+        android:textSize="35sp" />
 
     <TextView
         android:id="@+id/tvHint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:gravity="center"
         android:hint="@string/to_find_nth_root_for_x_enter_x_in_1st_column_and_n_in_2nd_column"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/btnCalculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:layout_weight="1"
+        android:layout_weight="0.5"
         android:background="@color/colorAccent"
         android:text="@string/calculate" />
 </LinearLayout>
