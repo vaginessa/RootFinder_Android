@@ -8,15 +8,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-
     EditText et1, et2;
     TextView tvOutput, tvHint;
     Button btnCalculate;
-    static double num, root, e;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         et1 = (EditText) findViewById(R.id.et1);
@@ -37,32 +36,16 @@ public class MainActivity extends Activity {
                 return true;
             }
         });
+
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                e = 0;
-                if (!(et1.getText().toString().equals("")) && !(et2.getText().toString().equals(""))) {
-                    num = Double.parseDouble(et1.getText().toString());
-                    root = Double.parseDouble(et2.getText().toString());
-                    if (num == 0) {
-                        tvOutput.setText("Undefined");
-                    }
-                    if (root == 0) {
-                        tvOutput.setText("0");
-                    }
-                    if (num != 0 && root != 0) {
-                        e = Math.pow(num, 1 / root);
-                        if ((int) e == e) {
-                            tvOutput.setText(String.valueOf((int) e));
-                        } else
-                            tvOutput.setText(String.valueOf(e));
-                    } else {
-                        tvOutput.setText("Please enter some values higher then 0");
-                    }
+                if (et1.getText().toString().equals("") && et2.getText().toString().equals("")) {
+                    tvOutput.setText(R.string.enter_numbers);
                 } else {
-                    tvOutput.setText("Please enter numbers");
+                    tvOutput.setText(String.valueOf(Math.pow(Double.parseDouble(et1.getText().toString()), (1 / Double.parseDouble(et2.getText().toString())))));
                 }
-                tvHint.setText("hold button to reset all values");
+                tvHint.setText(R.string.clear_values);
             }
         });
     }

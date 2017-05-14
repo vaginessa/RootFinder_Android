@@ -3,47 +3,60 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1">
 
         <EditText
             android:id="@+id/et1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:background="@color/colorPrimaryDark"
+            android:layout_weight="2"
+            android:background="@color/colorPrimary"
             android:gravity="center"
             android:hint="@string/number"
             android:inputType="numberSigned" />
 
         <TextView
-            android:layout_width="1dp"
-            android:layout_height="match_parent" />
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp" />
 
         <EditText
             android:id="@+id/et2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimary"
             android:gravity="center"
             android:hint="@string/root"
             android:inputType="number" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp" />
+
+        <Button
+            android:id="@+id/btnCalculate"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@color/colorAccent"
+            android:text="@string/calculate" />
     </LinearLayout>
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
 
     <TextView
         android:id="@+id/tvOutput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:layout_weight="1"
         android:gravity="center"
         android:hint="@string/app_by_gnsmk"
@@ -51,29 +64,12 @@
         android:textSize="30sp" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <TextView
         android:id="@+id/tvHint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:hint="@string/to_find_nth_root_for_x_enter_x_in_1st_field_and_n_in_2nd_field"
+        android:hint="@string/to_find_nth_root_for_x_enter_x_in_1st_column_and_n_in_2nd_column"
         android:padding="10dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <Button
-        android:id="@+id/btnCalculate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:background="@color/colorAccent"
-        android:text="@string/calculate" />
 </LinearLayout>
