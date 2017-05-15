@@ -56,13 +56,13 @@ public class MainActivity extends Activity {
 
     void rootFinder(double start, double end) {
         double number, someX, sendBack = (start + end) / 2;
-        for (int i = 0; i < 8192; i++) {
+        for (int i = 0; i < 262144; i++) {
             sendBack = (start + end) / 2;
             number = (start + end) / 2;
             someX = Math.pow(number, root);
             if (someX == num) {
                 sendBack = number;
-                i = 8192;
+                i = 262144;
             } else if (someX < num) {
                 start = (start + end) / 2;
             } else if (someX > num) {
