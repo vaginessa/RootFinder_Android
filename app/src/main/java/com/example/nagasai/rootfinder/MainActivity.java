@@ -11,7 +11,7 @@ public class MainActivity extends Activity {
     EditText et1, et2;
     TextView tvOutput, tvHint;
     Button btnCalculate;
-    long num, root;
+    double num, root;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +43,8 @@ public class MainActivity extends Activity {
                 } else if (et2.getText().toString().equals(0)) {
                     tvOutput.setText(String.valueOf(1));
                 } else {
-                    num = Long.parseLong(et1.getText().toString());
-                    root = Long.parseLong(et2.getText().toString());
+                    num = Double.parseDouble(et1.getText().toString());
+                    root = Double.parseDouble(et2.getText().toString());
                     rootFinder(0, num);
                 }
                 tvHint.setText(R.string.clear_values);
@@ -52,15 +52,15 @@ public class MainActivity extends Activity {
         });
     }
 
-    void rootFinder(long start, long end) {
-        long number, someX, sendBack = (start + end) / 2;
-        for (int i = 0; i < 65536; i++) {
+    void rootFinder(double start, double end) {
+        double number, someX, sendBack = (start + end) / 2;
+        for (int i = 0; i < 131072; i++) {
             sendBack = (start + end) / 2;
             number = (start + end) / 2;
-            someX = (long) Math.pow(number, root);
+            someX = Math.pow(number, root);
             if (someX == num) {
                 sendBack = number;
-                i = 65536;
+                break;
             } else if (someX < num) {
                 start = (start + end) / 2;
             } else if (someX > num) {
