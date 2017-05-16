@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
     EditText et1, et2;
@@ -54,7 +55,8 @@ public class MainActivity extends Activity {
 
     void rootFinder(double start, double end) {
         double number, someX, sendBack = (start + end) / 2;
-        for (int i = 0; i < 131072; i++) {
+        int i;
+        for (i = 1; i < 32767; i++) {
             sendBack = (start + end) / 2;
             number = (start + end) / 2;
             someX = Math.pow(number, root);
@@ -68,5 +70,7 @@ public class MainActivity extends Activity {
             }
         }
         tvOutput.setText(String.valueOf(sendBack));
+        Toast.makeText(this, i + " level(s) of computing", Toast.LENGTH_SHORT).show();
+
     }
 }
