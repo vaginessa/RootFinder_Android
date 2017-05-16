@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
-    EditText et1, et2;
+    EditText etNumber, etRoot;
     TextView tvOutput, tvHint;
     Button btnCalculate;
     double num, root;
@@ -19,8 +19,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        et1 = (EditText) findViewById(R.id.et1);
-        et2 = (EditText) findViewById(R.id.et2);
+        etNumber = (EditText) findViewById(R.id.etNumber);
+        etRoot = (EditText) findViewById(R.id.etRoot);
         tvOutput = (TextView) findViewById(R.id.tvOutput);
         tvHint = (TextView) findViewById(R.id.tvHint);
         btnCalculate = (Button) findViewById(R.id.btnCalculate);
@@ -28,8 +28,8 @@ public class MainActivity extends Activity {
         btnCalculate.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                et1.setText("");
-                et2.setText("");
+                etNumber.setText("");
+                etRoot.setText("");
                 tvOutput.setText("");
                 tvHint.setText("");
                 return true;
@@ -39,13 +39,13 @@ public class MainActivity extends Activity {
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (et1.getText().toString().equals("") && et2.getText().toString().equals("")) {
+                if (etNumber.getText().toString().equals("") && etRoot.getText().toString().equals("")) {
                     tvOutput.setText(R.string.enter_numbers);
-                } else if (et2.getText().toString().equals(0)) {
+                } else if (etRoot.getText().toString().equals(0)) {
                     tvOutput.setText(String.valueOf(1));
                 } else {
-                    num = Double.parseDouble(et1.getText().toString());
-                    root = Double.parseDouble(et2.getText().toString());
+                    num = Double.parseDouble(etNumber.getText().toString());
+                    root = Double.parseDouble(etRoot.getText().toString());
                     rootFinder(0, num);
                 }
                 tvHint.setText(R.string.clear_values);

@@ -14,7 +14,7 @@
         android:layout_weight="0.5">
 
         <EditText
-            android:id="@+id/et1"
+            android:id="@+id/etNumber"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -29,7 +29,7 @@
             android:layout_margin="2dp" />
 
         <EditText
-            android:id="@+id/et2"
+            android:id="@+id/etRoot"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
