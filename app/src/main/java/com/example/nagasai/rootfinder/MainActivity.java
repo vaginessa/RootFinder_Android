@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
     void rootFinder(double start, double end) {
         double number, someX, sendBack = (start + end) / 2;
         int i;
-        for (i = 1; i < 32767; i++) {
+        for (i = 2; i < 32767; i++) {
             sendBack = (start + end) / 2;
             number = (start + end) / 2;
             someX = Math.pow(number, root);
@@ -70,7 +70,7 @@ public class MainActivity extends Activity {
             }
         }
         tvOutput.setText(String.valueOf(sendBack));
-        Toast.makeText(this, i + " level(s) of computing", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, i + " levels of computing", Toast.LENGTH_SHORT).show();
 
     }
 }
