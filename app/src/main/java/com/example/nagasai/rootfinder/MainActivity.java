@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
     EditText etNumber, etRoot;
@@ -70,7 +69,5 @@ public class MainActivity extends Activity {
             }
         }
         tvOutput.setText(String.valueOf(sendBack));
-        Toast.makeText(this, i + " levels of computing", Toast.LENGTH_SHORT).show();
-
     }
 }
