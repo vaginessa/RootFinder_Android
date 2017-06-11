@@ -53,21 +53,20 @@ public class MainActivity extends Activity {
     }
 
     void rootFinder(double start, double end) {
-        double number, someX, sendBack = (start + end) / 2;
-        int i;
-        for (i = 2; i < 65536; i++) {
-            sendBack = (start + end) / 2;
+        double number, trailNum, result = (start + end) / 2;
+        for (int i = 0; i < 65536; i++) {
+            result = (start + end) / 2;
             number = (start + end) / 2;
-            someX = Math.pow(number, root);
-            if (someX == num) {
-                sendBack = number;
+            trailNum = Math.pow(number, root);
+            if (trailNum == num) {
+                result = number;
                 break;
-            } else if (someX < num) {
+            } else if (trailNum < num) {
                 start = (start + end) / 2;
-            } else if (someX > num) {
+            } else if (trailNum > num) {
                 end = (start + end) / 2;
             }
         }
-        tvOutput.setText(String.valueOf(sendBack));
+        tvOutput.setText(String.valueOf(result));
     }
 }
