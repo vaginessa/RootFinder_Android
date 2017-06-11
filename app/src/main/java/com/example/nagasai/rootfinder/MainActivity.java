@@ -55,7 +55,7 @@ public class MainActivity extends Activity {
     void rootFinder(double start, double end) {
         double number, someX, sendBack = (start + end) / 2;
         int i;
-        for (i = 2; i < 32767; i++) {
+        for (i = 2; i < 65536; i++) {
             sendBack = (start + end) / 2;
             number = (start + end) / 2;
             someX = Math.pow(number, root);
